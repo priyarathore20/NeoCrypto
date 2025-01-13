@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import AnimatedCoin from '../UI/AnimatedCoin';
 
 const HeroSection = () => {
   return (
@@ -16,19 +17,20 @@ const HeroSection = () => {
           NeoCrypto.
         </p>
         <button className="bg-teal-500 mt-8 px-10 py-2 rounded-lg w-fit font-semibold text-black">
-          Get  Started
+          Get Started
         </button>
       </div>
 
       {/* Added A image */}
-      <div>
-        <Image
+      <div className='flex-1'>
+        {/* <Image
           src="/coin.png"
           alt="hero-image"
           width={500}
           height={500}
           crossOrigin="anonymous"
-        />
+        /> */}
+        <AnimatedCoin />
       </div>
     </div>
   );
