@@ -30,7 +30,8 @@ const TrendingCoins = () => {
       <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-16 w-full">
         <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-16 mt-5 w-full">
           {coins.slice(0, 9).map((coin) => (
-            <div
+            <Link
+              href={`/coins/${coin?.item?.id}`}
               key={coin?.item?.id}
               className="flex gap-4 p-5 border border-teal-200 hover:border-teal-300 rounded-2xl w-full max-w-[400px] transition-all ease-linear hover:scale-105"
             >
@@ -61,7 +62,7 @@ const TrendingCoins = () => {
                   %
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <Link href="/trending" className="flex items-center gap-2 text-lg">

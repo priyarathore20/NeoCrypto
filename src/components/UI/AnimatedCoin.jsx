@@ -19,7 +19,7 @@ const AnimatedCoin = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center p-8 w-full min-h-[400px]">
+    <div className="flex justify-end items-center py-8 w-full min-h-[400px]">
       <div
         className="relative group"
         onMouseEnter={() => setIsHovered(true)}

@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="mt-16 px-16 py-5">
+    <div className="mx-auto mt-16 py-5 container">
       {/* Footer logo image */}
       <div className="flex justify-between items-center mb-5">
         <div>
@@ -34,7 +34,10 @@ const Footer = () => {
       {/* Footer text */}
 
       <div className="mt-5 text-center text-gray-100">
-        <p>© 2025 <span className='text-teal-400'>NeoCrypto</span>. All Rights Reserved.</p>
+        <p>
+          © 2025 <span className="text-teal-400">NeoCrypto</span>. All Rights
+          Reserved.
+        </p>
         <p>
           All data is for informational purposes only. Please do your own
           research before making financial decisions.

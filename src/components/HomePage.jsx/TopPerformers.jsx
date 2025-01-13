@@ -14,7 +14,7 @@ const TopPerformerCoins = () => {
         'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=percent_change_desc'
       );
       const data = await response.data;
-      
+
       setCoins(data);
     } catch (error) {
       console.error('Error fetching top performers:', error);
@@ -60,16 +60,13 @@ const TopPerformerCoins = () => {
             </div>
           </div>
         ))}
-        <Link
-          href="/top-performers"
-          className="flex items-center gap-2 text-lg"
-        >
-          View more{' '}
-          <span>
-            <FaArrowRight />
-          </span>
-        </Link>
       </div>
+      <Link href="/top-performers" className="flex justify-center items-center gap-2 mt-16 text-lg">
+        View more{' '}
+        <span>
+          <FaArrowRight />
+        </span>
+      </Link>
     </div>
   );
 };

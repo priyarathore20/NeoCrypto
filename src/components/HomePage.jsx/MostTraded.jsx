@@ -65,16 +65,13 @@ function MostTradedCoins() {
             </div>
           </div>
         ))}
-        <Link
-          href="/top-performers"
-          className="flex items-center gap-2 text-lg"
-        >
-          View more{' '}
-          <span>
-            <FaArrowRight />
-          </span>
-        </Link>
       </div>
+      <Link href="/top-performers" className="flex justify-center items-center gap-2 mt-16 text-lg">
+        View more{' '}
+        <span>
+          <FaArrowRight />
+        </span>
+      </Link>
     </div>
   );
 }
