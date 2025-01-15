@@ -186,7 +186,7 @@ const TopPerforming = () => {
                   <td
                     className={`text-right py-3 px-4 font-semibold ${
                       getPriceChange(coin) > 0
-                        ? 'text-teal-400'
+                        ? 'text-green-500'
                         : 'text-red-500'
                     }`}
                   >

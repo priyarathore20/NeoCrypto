@@ -31,7 +31,7 @@ const HeroSection = () => {
             with NeoCrypto.
           </p>
           <div className="mt-10">
-            <Button href="/coins" label="Learn More" />
+            <Button href="/top-performers" label="Learn More" />
           </div>
         </div>
 

@@ -29,7 +29,7 @@ const Footer = () => {
       </div>
 
       {/* Footer line */}
-      <div className="bg-gray-800 w-full h-1"></div>
+      <div className="bg-gray-800 w-full h-0.5"></div>
 
       {/* Footer text */}
 
