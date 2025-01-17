@@ -19,7 +19,7 @@ const AnimatedCoin = () => {
   }, []);
 
   return (
-    <div className="flex justify-end items-center py-8 w-full min-h-[400px]">
+    <div className="flex justify-end items-center px-5 py-8 w-full min-h-[400px]">
       <div
         className="relative group"
         onMouseEnter={() => setIsHovered(true)}
@@ -28,7 +28,7 @@ const AnimatedCoin = () => {
         {/* Main coin circle */}
         <div
           className={`
-          w-[350px] h-[350px] rounded-full 
+          sm:w-[350px] sm:h-[350px] w-72 h-72 rounded-full 
           bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-500
           shadow-lg 
           transition-all duration-500 ease-in-out

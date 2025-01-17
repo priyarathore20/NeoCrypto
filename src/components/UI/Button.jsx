@@ -12,7 +12,7 @@ const Button = ({ href, label }) => {
       <span className="group-hover:h-full top-0 left-0 absolute bg-gray-600 w-full h-0 transition-all duration-300 delay-200 ease"></span>
       <span className="group-hover:h-full bottom-0 left-0 absolute bg-gray-600 w-full h-0 transition-all duration-300 delay-200 ease"></span>
       <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 w-full h-full duration-300 delay-300"></span>
-      <span className="group-hover:text-black relative transition-colors duration-300 delay-200 ease">
+      <span className="group-hover:text-teal-500 relative transition-colors duration-300 delay-200 ease">
         {label}
       </span>
     </Link>

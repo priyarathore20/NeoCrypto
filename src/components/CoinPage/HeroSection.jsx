@@ -23,23 +23,23 @@ const HeroSection = ({ coin }) => {
   const description = truncateDescription(coin?.description?.en);
 
   return (
-    <div className="flex justify-start items-center">
-      <div className="flex-[0.4]">
+    <div className="flex lg:flex-row flex-col justify-start items-center gap-8 py-5">
+      <div className="flex-[0.4] mb-5 lg:mb-0">
         <Image
           width={300}
           height={300}
-          src={coin?.image?.large}
+          src={coin?.image?.large || '/placeholder-image.png'}
           alt={coin?.name || 'Coin image'}
-          className="border-gray-300 border transition-all duration-300 ease-in hover:scale-110"
+          className="border-gray-300 border rounded-md w-full h-auto transition-all duration-300 ease-in hover:scale-110"
         />
       </div>
 
       <div className="flex-1">
-        <h1 className="text-5xl text-teal-500 capitalize">
-          {coin?.name}
-          <span> ({coin?.symbol?.toUpperCase()}) </span>
+        <h1 className="font-semibold text-3xl text-teal-500 sm:text-4xl lg:text-5xl capitalize">
+          {coin?.name || 'Unknown Coin'}
+          <span> ({coin?.symbol?.toUpperCase() || 'N/A'}) </span>
         </h1>
-        <p className="mt-3 text-lg">{description}</p>
+        <p className="mt-3 text-base sm:text-lg lg:text-xl">{description}</p>
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ function MostTradedCoins() {
   return (
     <div>
       <div className="flex justify-center items-center mt-10 py-5">
-        <h1 className="mt-10 font-bold text-5xl">Most Traded</h1>
+        <h1 className="mt-10 font-bold text-5xl text-center">Most Traded</h1>
       </div>
       <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-16 mt-5 w-full">
         {coins.slice(0, 9).map((coin, i) => (

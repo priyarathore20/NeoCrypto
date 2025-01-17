@@ -1,42 +1,62 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaBars } from 'react-icons/fa';
+import Input from './Input';
+import AnimatedNavLink from './NavLinks';
 
-const LinkClass =
-  'border-b-2 border-transparent hover:border-white transition duration-300';
+const links = [
+  { href: '/top-performers', label: 'Top Performers' },
+  { href: '/most-traded', label: 'Most Traded' },
+];
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex justify-between items-center mx-auto py-5 text-white container">
-      {/* Add the Image component */}
+    <div className="flex justify-between items-center md:mx-auto px-5 md:px-0 py-5 text-white md:container">
+      {/* Logo */}
       <Link href="/">
         <Image src="/logo.jpg" alt="logo" width={180} height={10} />
       </Link>
 
-      <div className="flex flex-[0.5] justify-end items-center gap-5 text-[17px]">
-        {/* Add the Search component */}
-        <div className="relative w-full">
-          <input
-            type="text"
-            placeholder="Search coin"
-            className="border-gray-700 bg-gradient-to-r from-black/90 to-black/95 px-5 py-2 border rounded-2xl w-full max-w-[500px] animate-border outline-none"
+      {/* Menu and Search Bar Section */}
+      <div className="flex flex-1 justify-end items-center gap-5 text-[17px]">
+        {/* Menu Icon for mobile */}
+        <div className="lg:hidden">
+          <FaBars
+            className="text-2xl text-white cursor-pointer"
+            onClick={() => setMenuOpen(!menuOpen)}
           />
-          <span className="top-3.5 right-3 absolute">
-            <FaSearch className="w-4 h-4 fill-gray-400" />
-          </span>
         </div>
 
-        {/* Add the Nav links component */}
-        <Link href="/" className={LinkClass}>
-          Home
-        </Link>
-        <Link href="/trending" className={LinkClass}>
-          Trending
-        </Link>
-        <Link href="/coins" className={LinkClass}>
-          Coins
-        </Link>
+        {/* Nav Links and Search Bar */}
+        <div
+          className={`flex flex-1 justify-end items-center gap-3 ${
+            menuOpen
+              ? 'flex-col absolute top-24 right-0 z-[1000] bg-black w-full px-5 py-8 lg:p-0 lg:flex-row lg:static md:max-w-[50%] max-w-[100%]'
+              : 'hidden lg:flex'
+          }`}
+        >
+          {/* Search Component in mobile menu */}
+          <div className="flex flex-1 justify-end mb-5 lg:mb-0 w-full md:w-auto">
+            <Input />
+          </div>
+
+          {/* Nav links */}
+          <div className="flex lg:flex-row flex-col flex-[0.1] justify-end gap-3 w-full">
+            {links.map((link) => (
+              <AnimatedNavLink
+                key={link.href}
+                href={link.href}
+                className="text-white"
+              >
+                {link.label}
+              </AnimatedNavLink>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

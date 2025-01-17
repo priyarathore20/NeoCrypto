@@ -18,19 +18,19 @@ const HeroSection = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex justify-between items-center px-10 pb-10">
-        <div className="w-1/2">
-          <h1 className="font-semibold text-7xl text-white leading-[100%]">
-            Stay Ahead with Real-Time Cryptocurrency Prices on{' '}
+      <div className="relative z-10 flex lg:flex-row flex-col justify-between items-center pb-10">
+        <div className="lg:flex flex-col items-center w-full lg:w-1/2 h-full">
+          <h1 className="font-semibold text-5xl text-center text-white sm:text-6xl lg:text-left leading-[100%]">
+            Stay Ahead with Real-Time Crypto currency Prices on{' '}
             <span className="text-teal-500">NeoCrypto</span>
           </h1>
-          <p className="mt-5 text-gray-300 text-xl">
+          <p className="mt-5 text-center text-gray-300 text-xl lg:text-left">
             Track the latest trends and analyze daily, weekly, monthly, and
             yearly price charts of your favorite cryptocurrencies. Stay informed
             with the most accurate data and make smarter investment decisions
             with NeoCrypto.
           </p>
-          <div className="mt-10">
+          <div className="flex justify-center lg:justify-start mt-10 w-full">
             <Button href="/top-performers" label="Learn More" />
           </div>
         </div>

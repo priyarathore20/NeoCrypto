@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import Footer from '@/components/UI/Footer';
 import Navbar from '@/components/UI/Navbar';
 import './globals.css';
@@ -14,9 +13,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
       </head>

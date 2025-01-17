@@ -15,7 +15,7 @@ import Loader from '../UI/Loader';
 
 const CoinChart = ({ coin }) => {
   const [priceData, setPriceData] = useState(null);
-  const [timeframe, setTimeframe] = useState('1'); // Default to 1 day timeframe
+  const [timeframe, setTimeframe] = useState('365'); // Default to 1 day timeframe
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -97,16 +97,23 @@ const CoinChart = ({ coin }) => {
 
   if (error) {
     return (
-      <div>
+      <div className="flex justify-center items-center p-4 text-center">
         <div>Error: {error.message}</div>
-        <button onClick={() => setTimeframe(timeframe)}>Retry</button>
+        <button
+          onClick={() => setTimeframe(timeframe)}
+          className="bg-red-500 mt-4 px-6 py-2 rounded-md text-white"
+        >
+          Retry
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1 className="mt-10 font-semibold text-4xl">Graphical Representation</h1>
+    <div className="flex flex-col justify-center items-center px-4 md:px-10">
+      <h1 className="mt-10 font-semibold text-2xl md:text-4xl">
+        Graphical Representation
+      </h1>
 
       {/* Chart Display */}
       <div className="mt-16 w-full h-96">
@@ -125,7 +132,23 @@ const CoinChart = ({ coin }) => {
                 />
                 {/* Y-Axis with Price (USD) label */}
                 <YAxis tick={{ stroke: '#4CAF50', strokeWidth: 0.1 }} />
-                <Tooltip contentStyle={{ backgroundColor: 'black' }} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'black',
+                    color: 'white',
+                    maxWidth: '200px',
+                    overflow: 'hidden',
+                    wordWrap: 'break-word',
+                    whiteSpace: 'normal',
+                    padding: '10px',
+                    borderRadius: '5px',
+                  }}
+                  wrapperStyle={{
+                    zIndex: 10,
+                  }}
+                  position={{ x: 10, y: -10 }}
+                />
+
                 <Legend />
                 <Line
                   type="monotone"
@@ -141,35 +164,37 @@ const CoinChart = ({ coin }) => {
       </div>
 
       {/* Chart buttons */}
-      <div className="flex justify-center gap-4 mt-10">
+      <div className="flex flex-wrap justify-center gap-4 mt-10">
         <button
           onClick={() => setTimeframe('1')}
-          className={`px-4 py-2 rounded-md ${
-            timeframe === '1' ? 'bg-teal-500' : 'bg-teal-900'
+          className={`px-4 py-2 rounded-md text-white transition-colors duration-300 ${
+            timeframe === '1' ? 'bg-teal-500' : 'bg-teal-900 hover:bg-teal-700'
           }`}
         >
           1 Day
         </button>
         <button
           onClick={() => setTimeframe('7')}
-          className={`px-4 py-2 rounded-md ${
-            timeframe === '7' ? 'bg-teal-500' : 'bg-teal-900'
+          className={`px-4 py-2 rounded-md text-white transition-colors duration-300 ${
+            timeframe === '7' ? 'bg-teal-500' : 'bg-teal-900 hover:bg-teal-700'
           }`}
         >
           7 Days
         </button>
         <button
           onClick={() => setTimeframe('30')}
-          className={`px-4 py-2 rounded-md ${
-            timeframe === '30' ? 'bg-teal-500' : 'bg-teal-900'
+          className={`px-4 py-2 rounded-md text-white transition-colors duration-300 ${
+            timeframe === '30' ? 'bg-teal-500' : 'bg-teal-900 hover:bg-teal-700'
           }`}
         >
           30 Days
         </button>
         <button
           onClick={() => setTimeframe('365')}
-          className={`px-4 py-2 rounded-md ${
-            timeframe === '365' ? 'bg-teal-500' : 'bg-teal-900'
+          className={`px-4 py-2 rounded-md text-white transition-colors duration-300 ${
+            timeframe === '365'
+              ? 'bg-teal-500'
+              : 'bg-teal-900 hover:bg-teal-700'
           }`}
         >
           1 Year

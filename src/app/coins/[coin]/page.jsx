@@ -39,7 +39,7 @@ const CoinDetail = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="mx-auto mt-10 py-5 container">
+    <div className="md:mx-auto mt-10 px-5 md:px-0 md:container">
       {fetchedCoin && (
         <>
           <HeroSection coin={fetchedCoin} />

@@ -1,3 +1,5 @@
+'use client'
+
 const DataTable = ({ fetchedCoin }) => {
   const coinDetails = [
     { key: 'Id', value: fetchedCoin.id },

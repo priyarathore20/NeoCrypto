@@ -4,15 +4,15 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="mx-auto mt-16 py-5 container">
+    <div className="mx-auto mt-16 sm:px-0 xs:px-5 py-5 container">
       {/* Footer logo image */}
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex md:flex-row flex-col justify-between items-center gap-8 mb-5">
         <div>
           <Image src="/logo.jpg" alt="logo" width={150} height={100} />
         </div>
 
         {/* Footer links */}
-        <div className="flex gap-5">
+        <div className="flex gap-5 text-center">
           <Link href={'/'} className="text-gray-100">
             About Us
           </Link>
