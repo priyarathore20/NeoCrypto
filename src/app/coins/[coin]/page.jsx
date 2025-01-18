@@ -3,6 +3,7 @@
 import CoinChart from '@/components/CoinPage/CoinChart';
 import DataTable from '@/components/CoinPage/DataTable';
 import HeroSection from '@/components/CoinPage/HeroSection';
+import Loader from '@/components/UI/Loader';
 import { useParams } from 'next/navigation'; // useParams hook for dynamic routes
 import { useEffect, useState } from 'react';
 
@@ -35,8 +36,18 @@ const CoinDetail = () => {
     fetchCoinDetails();
   }, [coin]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center w-screen h-screen">
+        <Loader />
+      </div>
+    );
+  if (error)
+    return (
+      <div className="flex justify-center items-center w-screen h-scree">
+        Error: Too many requests
+      </div>
+    );
 
   return (
     <div className="md:mx-auto mt-10 px-5 md:px-0 md:container">

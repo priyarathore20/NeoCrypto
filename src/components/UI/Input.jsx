@@ -2,7 +2,7 @@
 import { debounce } from '@/utils/helper';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { TbXboxX } from 'react-icons/tb';
 
@@ -56,28 +56,14 @@ const Input = () => {
     }
   };
 
-  // Add the event listener manually on the first render
-  if (!inputRef.current) {
-    document.addEventListener('mousedown', handleClickOutside);
+  // Add the event listener on component mount
+  useEffect(() => {
+    const handleOutsideClick = (event) => handleClickOutside(event);
+    window.addEventListener('mousedown', handleOutsideClick);
 
-    // Attach cleanup logic directly to the ref for safe removal
-    inputRef.current = {
-      cleanup: () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      },
-    };
-  }
-
-  // Clean up the event listener when the component unmounts
-  if (inputRef.current?.cleanup) {
-    const existingCleanup = inputRef.current.cleanup;
-    const originalUnmount = inputRef.current.unmount || (() => {});
-
-    inputRef.current.unmount = () => {
-      existingCleanup();
-      originalUnmount();
-    };
-  }
+    // Cleanup function to remove event listener on unmount
+    return () => window.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
 
   return (
     <div ref={inputRef} className="relative flex justify-end w-full">

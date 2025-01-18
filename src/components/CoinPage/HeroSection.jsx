@@ -1,7 +1,11 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const HeroSection = ({ coin }) => {
+const router = useRouter()
+
   const truncateDescription = (description) => {
     if (!description) {
       return 'Unfortunately, no description is currently available for this coin.';
@@ -35,9 +39,9 @@ const HeroSection = ({ coin }) => {
       </div>
 
       <div className="flex-1">
-        <h1 className="font-semibold text-3xl text-teal-500 sm:text-4xl lg:text-5xl capitalize">
+        <h1 className="flex gap-2 font-semibold text-3xl text-teal-500 sm:text-4xl lg:text-5xl capitalize">
           {coin?.name || 'Unknown Coin'}
-          <span> ({coin?.symbol?.toUpperCase() || 'N/A'}) </span>
+          <span onClick={()=> router.push(coin?.links?.homepage[0])} className='ml-4 cursor-pointer'><FaExternalLinkAlt /></span>
         </h1>
         <p className="mt-3 text-base sm:text-lg lg:text-xl">{description}</p>
       </div>

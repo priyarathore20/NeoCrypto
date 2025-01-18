@@ -97,11 +97,11 @@ const CoinChart = ({ coin }) => {
 
   if (error) {
     return (
-      <div className="flex justify-center items-center p-4 text-center">
+      <div className="flex justify-center items-center gap-5 p-4 text-center">
         <div>Error: {error.message}</div>
         <button
           onClick={() => setTimeframe(timeframe)}
-          className="bg-red-500 mt-4 px-6 py-2 rounded-md text-white"
+          className="bg-red-500 px-6 py-2 rounded-md text-white"
         >
           Retry
         </button>
