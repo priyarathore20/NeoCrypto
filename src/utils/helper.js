@@ -7,3 +7,7 @@ export function debounce(func, timeout = 300) {
     }, timeout);
   };
 }
+
+export function truncateToTwoDecimals(num) {
+  return Math.trunc(num * 100) / 100;
+}

@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="mx-auto mt-16 sm:px-0 xs:px-5 py-5 container">
+    <div className="mx-auto mt-16 lg:px-[60px] xs:px-5 py-5 container">
       {/* Footer logo image */}
       <div className="flex md:flex-row flex-col justify-between items-center gap-8 mb-5">
         <div>

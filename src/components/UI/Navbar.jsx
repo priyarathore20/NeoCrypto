@@ -15,7 +15,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex justify-between items-center md:mx-auto px-5 md:px-0 py-5 text-white md:container">
+    <div className="flex justify-between items-center md:mx-auto px-5 lg:px-[60px] py-5 text-white md:container">
       {/* Logo */}
       <Link href="/">
         <Image src="/logo.jpg" alt="logo" width={180} height={10} />

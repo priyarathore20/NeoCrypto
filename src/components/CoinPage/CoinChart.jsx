@@ -1,5 +1,6 @@
 'use client';
 
+import { truncateToTwoDecimals } from '@/utils/helper';
 import axios from 'axios'; // Import axios
 import { useEffect, useState } from 'react';
 import {
@@ -15,7 +16,7 @@ import Loader from '../UI/Loader';
 
 const CoinChart = ({ coin }) => {
   const [priceData, setPriceData] = useState(null);
-  const [timeframe, setTimeframe] = useState('365'); // Default to 1 day timeframe
+  const [timeframe, setTimeframe] = useState('1');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -34,7 +35,8 @@ const CoinChart = ({ coin }) => {
           price,
         }));
 
-        // Group data by date/time/month to show only one entry per period
+        console.log(chartData);
+
         const groupedData = groupDataByTimeframe(chartData, timeframe);
 
         setPriceData(groupedData);
@@ -109,10 +111,37 @@ const CoinChart = ({ coin }) => {
     );
   }
 
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            backgroundColor: 'black',
+            color: 'white',
+            maxWidth: '200px',
+            overflow: 'hidden',
+            wordWrap: 'break-word',
+            whiteSpace: 'normal',
+            padding: '10px',
+            borderRadius: '5px',
+            border: '1px solid white',
+          }}
+        >
+          <p>{`${label}`}</p>
+          <p className="text-teal-400">{`Price: $${truncateToTwoDecimals(
+            payload[0].value
+          )}`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <div className="flex flex-col justify-center items-center px-4 md:px-10">
       <h1 className="mt-10 font-semibold text-2xl md:text-4xl">
-        Graphical Representation
+        Graphical Representation (in USD)
       </h1>
 
       {/* Chart Display */}
@@ -133,20 +162,11 @@ const CoinChart = ({ coin }) => {
                 {/* Y-Axis with Price (USD) label */}
                 <YAxis tick={{ stroke: '#4CAF50', strokeWidth: 0.1 }} />
                 <Tooltip
-                  contentStyle={{
-                    backgroundColor: 'black',
-                    color: 'white',
-                    maxWidth: '200px',
-                    overflow: 'hidden',
-                    wordWrap: 'break-word',
-                    whiteSpace: 'normal',
-                    padding: '10px',
-                    borderRadius: '5px',
-                  }}
+                  content={<CustomTooltip />}
                   wrapperStyle={{
                     zIndex: 10,
                   }}
-                  position={{ x: 10, y: -10 }}
+                  // position={{ x: 10, y: -10 }}
                 />
 
                 <Legend />

@@ -6,7 +6,7 @@ import TrendingCoins from '@/components/HomePage.jsx/TrendingCoins';
 
 export default function Home() {
   return (
-    <div className="mt-10 sm:container sm:mx-auto px-5 sm:px-0">
+    <div className="mt-10 sm:container sm:mx-auto px-5 lg:px-[60px]">
       <HeroSection />
       <TrendingCoins />
       <TopPerformerCoins />

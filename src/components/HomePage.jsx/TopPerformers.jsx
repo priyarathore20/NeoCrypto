@@ -29,10 +29,10 @@ const TopPerformerCoins = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center mt-10 py-5">
+      <div className="flex justify-center items-center mt-10">
         <h1 className="mt-10 font-bold text-5xl text-center">Top Performers</h1>
       </div>
-      <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-16 mt-5 w-full">
+      <div className="gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 w-full">
         {coins.slice(0, 9).map((coin, i) =>
           isLoading ? (
             <CryptoCardSkeleton key={i} />
@@ -40,7 +40,7 @@ const TopPerformerCoins = () => {
             <Link
               href={`/coins/${coin?.id}`}
               key={coin?.id}
-              className="flex gap-4 p-5 border border-teal-200 hover:border-teal-300 rounded-2xl w-full max-w-[400px] transition-all ease-linear hover:scale-105"
+              className="flex gap-4 p-5 border border-teal-200 hover:border-teal-300 rounded-2xl w-full transition-all ease-linear hover:scale-105"
             >
               <Image
                 src={coin?.image}

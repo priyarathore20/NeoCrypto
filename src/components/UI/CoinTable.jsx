@@ -1,5 +1,6 @@
 'use client';
 
+import { truncateToTwoDecimals } from '@/utils/helper';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -83,7 +84,7 @@ const CoinTable = ({ coins, filter, getPriceChange }) => {
                     getPriceChange(coin) > 0 ? 'text-green-500' : 'text-red-500'
                   }`}
                 >
-                  {getPriceChange(coin)}%
+                  {truncateToTwoDecimals(getPriceChange(coin))}%
                 </td>
                 <td className="text-right px-4 py-3">
                   {formatMarketCap(coin.market_cap)}
