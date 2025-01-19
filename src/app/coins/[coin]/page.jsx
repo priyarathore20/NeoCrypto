@@ -24,7 +24,6 @@ const CoinDetail = () => {
           `https://api.coingecko.com/api/v3/coins/${coin}`
         );
         const data = await response.json();
-        console.log(data);
         setFetchedCoin(data);
         setLoading(false);
       } catch (err) {

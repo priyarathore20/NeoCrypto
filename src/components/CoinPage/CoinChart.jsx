@@ -35,8 +35,6 @@ const CoinChart = ({ coin }) => {
           price,
         }));
 
-        console.log(chartData);
-
         const groupedData = groupDataByTimeframe(chartData, timeframe);
 
         setPriceData(groupedData);
